@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script defer src="./assets/js/questions.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+    <title>Coding Quiz</title>
 </head>
 <body>
-    
+    <header>
+        <div class="high-score">
+            <a href="#">View High Scores</a>
+        </div>
+        <div class="timer">
+            <div class="count-text">
+                Time:
+            </div>
+            <div id="count">
+                0
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="start-quiz">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit.<br>
+            Keep in mind that incorrect answers will penalize your score/time<br>
+            by ten seconds!</p>
+            <button id="start-btn">Start Quiz</button>
+        </div>
+    </section>
 </body>
 </html>

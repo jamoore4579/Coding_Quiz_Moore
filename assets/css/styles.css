@@ -22,7 +22,7 @@ header {
     text-decoration: none;
 }
 
-.timer {
+#timer {
     display: flex;
     position: absolute;
     right: 0;
@@ -60,4 +60,16 @@ p {
     font-size: 14px;
     margin: 20px auto 0 auto;
     display: block;
+}
+
+#choices {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
 }

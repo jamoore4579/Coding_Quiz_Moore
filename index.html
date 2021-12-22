@@ -13,22 +13,37 @@
         <div class="high-score">
             <a href="#">View High Scores</a>
         </div>
-        <div class="timer">
+        <div id="timer">
             <div class="count-text">
                 Time:
             </div>
-            <div id="count">
+            <div id="counter">
                 0
             </div>
         </div>
     </header>
+    <!-- divide -->
     <section>
-        <div id="start-quiz">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit.<br>
+        <div id="content">
+            <h1 id="title">Coding Quiz Challenge</h1>
+            <h2 id="question" class="quiz"></h2>
+            <div class="options">
+                <br>
+                <button type="button" onclick="checkAnswer(this.id)" id="answer1" class="btn btn-option"></button>
+                <br>
+                <button type="button" onclick="checkAnswer(this.id)" id="answer2" class="btn btn-option"></button>
+                <br>
+                <button type="button" onclick="checkAnswer(this.id)" id="answer3" class="btn btn-option"></button>
+                <br>
+                <button type="button" onclick="checkAnswer(this.id)" id="answer4" class="btn btn-option"></button>
+                <br>
+                <hr>
+                <h3 id="outcome"></h3>
+            </div>
+            <p id="frontPg">Try to answer the following code-related questions within the time limit.<br>
             Keep in mind that incorrect answers will penalize your score/time<br>
             by ten seconds!</p>
-            <button id="start-btn">Start Quiz</button>
+            <button id="start-btn" type="button" onclick="startQuiz();" class="main">Start Quiz</button>
         </div>
     </section>
 </body>

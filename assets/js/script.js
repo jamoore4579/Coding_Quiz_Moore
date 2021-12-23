@@ -1,30 +1,30 @@
 // set the variable that will start counter
-var quizTimeEl = document.getElementById("timer")
 var counter = document.getElementById("counter")
-var startButton = document.getElementById("start-btn")
 var questionEl = document.getElementById("question")
 var selectAns1 = document.getElementById("answer1")
 var selectAns2 = document.getElementById("answer2")
 var selectAns3 = document.getElementById("answer3")
 var selectAns4 = document.getElementById("answer4")
-var feedbackEl = document.getElementById("feedback")
+var outcomeEl = document.getElementById("outcome")
 var title = document.getElementById("title")
 var questionNum = 0
 var timeRemain = 0
 var quizCounter = 0
 
-
+// function to start the quiz and set the intial time
 function startQuiz() {
     timeRemain = 75
     counterEl();
     startQuizEl();
 }
 
+// fucntion will set the interval to count down by a second at a time
 function counterEl() {
     counter.innerHTML = (timeRemain)
     quizCounter = setInterval(count, 1000);
 }
 
+// function will keep track of how much time is left 
 function count() {
     if (timeRemain !==0) {
         timeRemain--
@@ -36,12 +36,14 @@ function count() {
     return;
 }
 
+// fucntion will use the forEach to start calling the questions
 function startQuizEl() {
     document.querySelectorAll(".main").forEach(main => { main.style.display = "none" })
     document.querySelectorAll(".quiz").forEach(quiz => {quiz.style.display = "initial"})
     quiz(questionNum);
 } 
 
+// fucntion will provide the questions and the choices
 function quiz() {
     if (questionNum >= questions.length) {
         quizOver();
@@ -54,6 +56,49 @@ function quiz() {
     }
 }
 
+function checkAnswer(btnId) {
+    if ((document.getElementById(btnId).innerHTML) === (questions[questionNum].answer)) {
+        rightAnswer();
+        questionNum++
+    } else {
+        wrongAnswer();
+        questionNum++
+    }
+    quiz(questionNum)
+}
 
+function rightAnswer() {
+    score = timeRemain
+    outcomeEl.innerHTML = ("Correct");
+    setTimeout(function() {outcomeEl.innerHTML = ("");
+    },800)
+}
+
+function wrongAnswer() {
+    timeRemain = (timeRemain - 15)
+    outcomeEl.innerHTML = ("Wrong");
+    setTimeout(function() {outcomeEl.innerHTML = ("");
+    },800)
+}
+
+function quizOver() {
+    document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
+    var content = document.getElementById('theContent')
+    var submit = document.getElementById("submit")
+
+    counter.innerHTML = (0)
+
+    content.insertAdjacentHTML('afterbegin', '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>');
+    
+    var done = document.getElementById("done")
+    done.insertAdjacentHTML('afterend', '<p id="finalScore">Your final score is ' + score + '</p>')
+
+    submit.addEventListener("click", function(){
+        var value = document.getElementById('userScore').value;
+        localStorage.setItem(value, score)
+        window.location.href = "#"
+    });
+    clearInterval(quizCounter)
+}
 
 

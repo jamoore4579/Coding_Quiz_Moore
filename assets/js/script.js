@@ -10,6 +10,7 @@ var title = document.getElementById("title")
 var questionNum = 0
 var timeRemain = 0
 var quizCounter = 0
+var score = 0
 
 // function to start the quiz and set the intial time
 function startQuiz() {
@@ -71,14 +72,14 @@ function rightAnswer() {
     score = timeRemain
     outcomeEl.innerHTML = ("Correct");
     setTimeout(function() {outcomeEl.innerHTML = ("");
-    },800)
+    },500)
 }
 
 function wrongAnswer() {
     timeRemain = (timeRemain - 15)
     outcomeEl.innerHTML = ("Wrong");
     setTimeout(function() {outcomeEl.innerHTML = ("");
-    },800)
+    },500)
 }
 
 function quizOver() {
@@ -88,17 +89,32 @@ function quizOver() {
 
     counter.innerHTML = (0)
 
-    content.insertAdjacentHTML('afterbegin', '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-danger">Submit</button> <input id="userScore"> - Enter Initials</input>');
+    content.insertAdjacentHTML('afterbegin', '<h1 id="done">All Done!</h1> <button id="submit" class="btn btn-option">Submit</button> <input id="userScore"> - Enter Initials</input>');
     
     var done = document.getElementById("done")
     done.insertAdjacentHTML('afterend', '<p id="finalScore">Your final score is ' + score + '</p>')
 
-    submit.addEventListener("click", function(){
+    var submitEl = document.getElementById("submit")    
+    submitEl.addEventListener("click", function(){
         var value = document.getElementById('userScore').value;
         localStorage.setItem(value, score)
-        window.location.href = "#"
+        window.location.href = ""
     });
     clearInterval(quizCounter)
+}
+
+function renderTable() {
+    var tableBody = document.getElementById("tableBody")
+    for (let i=0; i < localstoreage.length; i++) {
+        var userName = localStorage.key(i)
+        var userScore = localStorage.getItem(userName)
+        tableBody.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
+    }
+}
+
+function clearStorage() {
+    localStorage.clear();
+    window.location.reload();
 }
 
 

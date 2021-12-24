@@ -22,6 +22,11 @@ header {
     text-decoration: none;
 }
 
+.content {
+    text-align: center;
+    padding-top: 100px;
+}
+
 #timer {
     display: flex;
     position: absolute;
@@ -34,12 +39,6 @@ header {
     margin: 0 0 0 10px;
 }
 
-h1 {
-    margin: 10 auto;
-    width: 100%;
-    text-align: center;
-}
-
 #start-quiz {
     margin: 0 auto;
     padding: 120px;
@@ -47,8 +46,18 @@ h1 {
     text-align: center;
 }
 
-p {
-    padding: 0;
+.first-pg {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.first-pg h1 {
+    margin: 0;
+}
+
+.first-pg p {
     margin: 0;
 }
 
@@ -62,14 +71,34 @@ p {
     display: block;
 }
 
-#choices {
-    padding: 0;
-    margin: 0;
+#question {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 0 70px;
+    padding: 0 40px;
 }
 
-.hide {
+h2 {
+    margin: 0 60px;
+}
+
+.quiz {
     display: none;
+}
+
+.quiz.btn {
+    border: 1px solid var(--default);
+    background-color: var(--default);
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin: 20px auto 0 auto;
+    justify-content: center;
+    margin: 5px 10px;
+
+
+}
+
+#outcome {
+    margin: 0;
 }

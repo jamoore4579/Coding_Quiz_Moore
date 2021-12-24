@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="high-score">
-            <a href="HighScores.html">View High Scores</a>
+            <a href="highscores.html">View High Scores</a>
         </div>
         <div id="timer">
             <div class="count-text">
@@ -23,8 +23,10 @@
         </div>
     </header>
     <section>
-        <div id="theContent">
-            <h1 id="title">Coding Quiz Challenge</h1>
+        <div class="content" id="theContent">
+            <div class="first-pg main">
+                <h1>Coding Quiz Challenge</h1>
+            </div>
             <h2 id="question" class="quiz"></h2>
             <div class="options">
                 <br class="quiz">
@@ -36,12 +38,11 @@
                 <br class="quiz">
                 <button type="button" onclick="checkAnswer(this.id)" id="answer4" class="quiz btn btn-option"></button>
                 <br>
-                <hr>
                 <h3 id="outcome"></h3>
             </div>
-            <p id="frontPg">Try to answer the following code-related questions within the time limit.<br>
-            Keep in mind that incorrect answers will penalize your score/time<br>
-            by ten seconds!</p>
+            <div class="first-pg main">
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            </div>
             <button id="start-btn" type="button" onclick="startQuiz();" class="main btn btn-option">Start Quiz</button>
         </div>
     </section>

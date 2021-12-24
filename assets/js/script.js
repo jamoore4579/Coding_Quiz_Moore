@@ -85,7 +85,7 @@ function wrongAnswer() {
 function quizOver() {
     document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
     var content = document.getElementById('theContent')
-    var submit = document.getElementById("submit")
+    var submitEl = document.getElementById('submit')
 
     counter.innerHTML = (0)
 
@@ -98,17 +98,17 @@ function quizOver() {
     submitEl.addEventListener("click", function(){
         var value = document.getElementById('userScore').value;
         localStorage.setItem(value, score)
-        window.location.href = ""
+        window.location.href = "highscores.html"
     });
     clearInterval(quizCounter)
 }
 
 function renderTable() {
-    var tableBody = document.getElementById("tableBody")
+    var tableEl = document.getElementById("tableBody")
     for (let i=0; i < localstoreage.length; i++) {
         var userName = localStorage.key(i)
         var userScore = localStorage.getItem(userName)
-        tableBody.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
+        tableEl.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
     }
 }
 

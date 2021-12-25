@@ -12,6 +12,10 @@ var timeRemain = 0
 var quizCounter = 0
 var score = 0
 
+if(title.innerHTML === "High Scores") {
+    renderTable();
+}
+
 // function to start the quiz and set the intial time
 function startQuiz() {
     timeRemain = 75
@@ -27,7 +31,7 @@ function counterEl() {
 
 // function will keep track of how much time is left 
 function count() {
-    if (timeRemain !==0) {
+    if (timeRemain !== 0) {
         timeRemain--
         counter.innerHTML = (timeRemain)
     } else {
@@ -85,7 +89,7 @@ function wrongAnswer() {
 function quizOver() {
     document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
     var content = document.getElementById('theContent')
-    var submitEl = document.getElementById('submit')
+    var submitEl = document.getElementById("submit")
 
     counter.innerHTML = (0)
 
@@ -100,17 +104,22 @@ function quizOver() {
         localStorage.setItem(value, score)
         window.location.href = "highscores.html"
     });
+
     clearInterval(quizCounter)
+
 }
 
+        
+
 function renderTable() {
-    var tableEl = document.getElementById("tableBody")
-    for (let i=0; i < localstoreage.length; i++) {
-        var userName = localStorage.key(i)
-        var userScore = localStorage.getItem(userName)
-        tableEl.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
-    }
+    var table = document.getElementById("myTable")
+    for (let i = 0; i < localStorage.length; i++) {
+       var userName = localStorage.key(i)
+       var userScore = localStorage.getItem(userName)
+        table.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
+   }
 }
+
 
 function clearStorage() {
     localStorage.clear();

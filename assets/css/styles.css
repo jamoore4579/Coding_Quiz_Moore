@@ -16,6 +16,7 @@ header {
 
 .high-score {
     margin: 0 0 0 20px;
+    font-size: 20px;
 }
 
 .high-score a {
@@ -31,12 +32,10 @@ header {
     display: flex;
     position: absolute;
     right: 0;
-    margin: 0 40px 0 0;
-    padding: 0;
-}
-
-#count {
-    margin: 0 0 0 10px;
+    margin: 0 50px 0 0;
+    padding: 10px 5px;
+    font-size: 20px;
+    color: var(--default);
 }
 
 #start-quiz {
@@ -62,10 +61,6 @@ header {
 }
 
 #start-btn {
-    border: 1px solid var(--default);
-    background-color: var(--default);
-    border-radius: 3px;
-    color: #FFFFFF;
     font-size: 14px;
     margin: 20px auto 0 auto;
     display: block;
@@ -87,34 +82,53 @@ h2 {
 }
 
 .quiz.btn {
-    border: 1px solid var(--default);
-    background-color: var(--default);
-    border-radius: 3px;
-    color: #FFFFFF;
     font-size: 14px;
     margin: 20px auto 0 auto;
     justify-content: center;
     margin: 5px 10px;
-
-
 }
 
 #outcome {
     margin: 0;
 }
 
-/*.table {
+.table {
     display: flex;
     justify-content: center;
-    border: 1px solid black;
     margin: 0 auto 10px auto;
-    height: 40px;
-    width: 300px;
+    height: 40%;
+    width: 30%;
     padding: 0 10px;
 }
 
 #myTable {
-    margin: auto;
-    height: 20px;
-    width: 100px;
-}*/
+    margin: 0 auto;
+    height: 40%;
+    width: 60%;
+}
+
+.btn {
+    border: 1px solid var(--default);
+    background-color: var(--default);
+    border-radius: 3px;
+    color: #FFFFFF;
+}
+
+tr {
+    margin: 0 10px;
+    width: 100%;
+}
+
+td {
+    padding: 4px 50px;
+    margin: 5px;
+    
+}
+
+.score-btn {
+    margin: 10px auto;
+}
+
+
+
+

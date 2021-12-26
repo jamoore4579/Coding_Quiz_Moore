@@ -7,3 +7,4 @@ The coding quiz is an interactive quiz that provides five qustions with multiple
 https://jamoore4579.github.io/Coding_Quiz_Moore/
 
 ## Link to the repository for the Coding Quiz
+https://github.com/jamoore4579/Coding_Quiz_Moore
